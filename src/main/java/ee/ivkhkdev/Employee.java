@@ -1,4 +1,4 @@
-package org.example;
+package ee.ivkhkdev;
 
 import java.util.Objects;
 
@@ -6,6 +6,14 @@ public class Employee {
     private Person person;
     private String appointment;
     private String salary;
+
+    public Employee() {
+    }
+    public Employee(Person person, String appointment, String salary) {
+        this.person = person;
+        this.appointment = appointment;
+        this.salary = salary;
+    }
 
     public Person getPerson() {
         return person;
@@ -31,9 +39,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Employee() {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -45,13 +50,5 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(person, appointment, salary);
-    }
-
-    public Employee(Person person, String appointment, String salary) {
-        this.person = person;
-        this.appointment = appointment;
-        this.salary = salary;
-
-
     }
 }

@@ -1,5 +1,7 @@
-package org.example;
+package ee.ivkhkdev;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Objects;
 
 public class Person {
@@ -11,6 +13,15 @@ public class Person {
     private Address address;
 
     public Person() {
+    }
+
+    public Person(String name, String surname, Address address, int birthDay, int birthMonth, int birthYear ) {
+        this.name = name;
+        this.address = address;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
+        this.surname = surname;
     }
 
     public String getName() {
@@ -74,13 +85,11 @@ public class Person {
         return Objects.hash(name, surname, birthYear, birthMonth, birthDay, address);
     }
 
-    public Person(String name, String surname, int birthYear, int birthMonth, int birthDay, Address address) {
-        this.name = name;
-        this.surname = surname;
-        this.birthYear = birthYear;
-        this.birthMonth = birthMonth;
-        this.birthDay = birthDay;
-        this.address = address;
-
+    public int age(){
+        // Дата рождения
+        LocalDate birthDate = LocalDate.of(birthYear, birthMonth, birthDay);
+        // Вычисление возраста
+        Period age = Period.between(birthDate, LocalDate.now());
+        return age.getYears();
     }
 }

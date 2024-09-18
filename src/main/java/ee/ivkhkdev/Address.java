@@ -1,4 +1,4 @@
-package org.example;
+package ee.ivkhkdev;
 
 import java.util.Objects;
 
@@ -11,6 +11,15 @@ public class Address {
     private String zip;
 
     public Address() {
+    }
+
+    public Address(String house, String room, String street, String city, String state, String zip) {
+        this.house = house;
+        this.room = room;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
     }
 
     public String getHouse() {
@@ -72,15 +81,5 @@ public class Address {
     @Override
     public int hashCode() {
         return Objects.hash(house, room, street, city, state, zip);
-    }
-
-    public Address(String house, String room, String street, String city, String state, String zip) {
-        this.house = house;
-        this.room = room;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-
     }
 }
